@@ -8,18 +8,19 @@ use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-        $products = Product::all();
-        $products_count = Product::count();
+        Product::factory(100)->create();
+        $productsToUpdate = Product::where('highlighted', false)->inRandomOrder()->take(5)->get();
 
-        for ($i = 0; $i < 5; $i++) {
-            $products[rand(1, $products_count)]['highlighted'] = true;
+
+        foreach ($productsToUpdate as $product) {
+            $product->highlighted = true;
+            $product->save();
         }
 
-        Product::factory(100)->create();
+
+
     }
 }

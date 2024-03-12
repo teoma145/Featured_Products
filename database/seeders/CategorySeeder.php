@@ -15,26 +15,31 @@ class CategorySeeder extends Seeder
     {
         $categories = [];
 
-        if (($open = fopen(database_path() . "/csv/categories.csv", "r")) !== FALSE) {
+        if (($open = fopen(database_path() . "/csv/categories.csv", "r")) !== false) {
 
-            while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
+            // Ignora la prima riga (header)
+            fgetcsv($open, 1000, ",");
+
+            while (($data = fgetcsv($open, 1000, ",")) !== false) {
                 $categories[] = $data;
             }
 
             fclose($open);
         }
 
-        array_shift($categories);
-
-
         foreach ($categories as $category) {
-
-            $new_category = new Category();
-
-            $new_category->name = $category[0];
-            $new_category->color = $category[1];
-
-            $new_category->save();
+            // Verifica se l'array $category contiene almeno due elementi
+            if (count($category) >= 2) {
+                $new_category = new Category();
+                $new_category->name = $category[0];
+                $new_category->color = $category[1];
+                $new_category->save();
+            } else {
+                // Gestione dell'errore nel caso in cui l'array $category non contenga abbastanza elementi
+                // Puoi registrare un errore o fare un fallback a un valore predefinito
+                // Ad esempio:
+                // Log::error("Errore durante il seeding: array category non contiene abbastanza elementi.");
+            }
         }
     }
 }
