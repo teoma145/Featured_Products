@@ -13,6 +13,13 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        $products = Product::all();
+        $products_count = Product::count();
+
+        for ($i = 0; $i < 5; $i++) {
+            $products[rand(1, $products_count)]['highlighted'] = true;
+        }
+
         Product::factory(100)->create();
     }
 }
