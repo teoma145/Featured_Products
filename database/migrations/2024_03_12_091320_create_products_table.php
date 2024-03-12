@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('ean', 13)->nullable()->unique();
+            $table->decimal('price', 10, 2);
+            $table->boolean('highlighted')->default(false);
             $table->timestamps();
+
         });
     }
 
