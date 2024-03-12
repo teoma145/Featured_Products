@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use Faker\Generator as Faker;
+
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +19,15 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = app(Faker::class);
+
         return [
-            //
+            'name' => $faker->realText(30),
+            'description' => $faker->realText(100),
+            'image' => $faker->imageUrl(360, 360, 'product', true),
+            'ean' => $faker->ean13(),
+            'price' => $faker->randomFloat(2, 10, 100),
+            'highlighted' => $faker->boolean(),
         ];
     }
 }
