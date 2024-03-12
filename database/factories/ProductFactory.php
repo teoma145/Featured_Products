@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Faker\Generator as Faker;
 
 
@@ -20,6 +21,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         $faker = app(Faker::class);
+        $categories = Category::all();
 
         return [
             'name' => $faker->realText(30),
@@ -27,7 +29,7 @@ class ProductFactory extends Factory
             'image' => $faker->imageUrl(360, 360, 'product', true),
             'ean' => $faker->ean13(),
             'price' => $faker->randomFloat(2, 10, 100),
-            'highlighted' => $faker->boolean(),
+            'category_id' => $categories[rand(0, 4)]['id']
         ];
     }
 }
