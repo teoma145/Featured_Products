@@ -1,4 +1,5 @@
 @use './partials/variables' as *;
+@use './partials/product-card';
 
 $fa-font-path: "../fonts/webfonts" !default;
 
@@ -25,8 +26,14 @@ header {
 
         list-style: none;
     }
-    img{
+
+    img {
         width: 100px;
         margin-left: 15px;
     }
+}
+
+main {
+    background-color: black;
+    height: calc(100vh - 6.25rem);
 }
