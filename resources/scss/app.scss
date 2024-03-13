@@ -9,6 +9,20 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color: $text-color;
+header {
+    background-color: $header-color;
+
+    height: 6.25rem;
+
+    ul {
+        display: flex;
+        gap: 1rem;
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+
+        margin: 0;
+
+        list-style: none;
+    }
 }
