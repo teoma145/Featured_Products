@@ -1,0 +1,35 @@
+.card {
+    text-align: center;
+    padding: 1rem 0;
+
+    &:hover {
+        box-shadow: 0 0 0.75rem rgba(255, 255, 255, 0.75);
+
+        transition: all 0.5s;
+    }
+
+    h4 {
+        text-transform: uppercase;
+        font-size: 0.95rem;
+    }
+
+    .product_price {
+        font-weight: bold;
+        font-size: 1.75rem;
+        padding: 1rem 0;
+    }
+
+    .product_name {
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .product_description {
+        font-size: 0.75rem;
+        color: gray;
+        padding: 0.5rem 0;
+    }
+
+
+
+}
