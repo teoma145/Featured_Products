@@ -1,14 +1,14 @@
 <header class="d-flex justify-content-between align-items-center">
-    <div>Boolstore</div>
+    <img src="{{ asset('storage' . '\/images/logo.jpg') }}" alt="logo-bdoctors">
     <ul>
         @foreach ($links as $link)
             <li> {{$link}} </li>
         @endforeach
     </ul>
 
-    <ul>
-        <li>FB</li>
-        <li>IG</li>
-        <li>X</li>
+    <ul class="me-4">
+        <li class="fs-6"><i class="fa-brands fa-facebook-f" style="color:	#FFFFFF;"></i></li>
+        <li class="fs-6"><i class="fa-brands fa-instagram" style="color: #FFFFFF;"></i></li>
+        <li class="fs-6"><i class="fa-brands fa-x-twitter" style="color: #FFFFFF;"></i></li>
     </ul>
 </header>
