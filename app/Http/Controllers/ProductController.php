@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,11 @@ class ProductController extends Controller
     {
         $links = config('links');
 
-        return view('home', compact('links'));
+        $highlighted_products = Product::where('highlighted', '=', 1)->get();
+
+        $categories = Category::all();
+
+        return view('home', compact('links', 'highlighted_products', 'categories'));
     }
 
     /**
