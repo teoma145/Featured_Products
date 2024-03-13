@@ -13,7 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $links = config('links');
+
+        return view('home', compact('links'));
     }
 
     /**
