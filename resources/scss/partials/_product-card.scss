@@ -1,9 +1,11 @@
 .card {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0.25rem;
 
     &:hover {
-        box-shadow: 0 0 0.75rem rgba(255, 255, 255, 0.75);
+        box-shadow: 0px 0px 8px 8px rgba(255, 255, 255, 0.6);
+
+        scale: 1.1;
 
         transition: all 0.5s;
     }
@@ -17,6 +19,20 @@
         font-weight: bold;
         font-size: 1.75rem;
         padding: 1rem 0;
+
+        .euro {
+            font-size: 3.5rem;
+        }
+
+        .cent {
+            font-size: 1.75rem;
+        }
+
+        .period {
+            color: grey;
+            font-size: 0.6rem;
+            font-weight: lighter;
+        }
     }
 
     .product_name {
